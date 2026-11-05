@@ -1,0 +1,382 @@
+@import url('https://fonts.googleapis.com/css2?family=Alex+Brush&family=Caveat:wght@400;700&family=EB+Garamond:ital@0;1&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+  overflow-x: hidden;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-bottom: 6rem;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  background-color: #d7d5d0;
+  color: #202020;
+}
+
+.retro-site {
+  min-height: 100vh;
+  background-color: #d7d5d0;
+  background-image:
+    radial-gradient(ellipse at 50% 0%, rgba(255, 255, 255, 0.72), transparent 68%),
+    repeating-linear-gradient(0deg, rgba(30, 30, 30, 0.025) 0, rgba(30, 30, 30, 0.025) 1px, transparent 1px, transparent 4px);
+}
+
+.retro-screen {
+  background-color: #d7d5d0;
+  background-image:
+    radial-gradient(ellipse at 50% 25%, rgba(255, 255, 255, 0.78), transparent 62%),
+    repeating-linear-gradient(0deg, rgba(30, 30, 30, 0.035) 0, rgba(30, 30, 30, 0.035) 1px, transparent 1px, transparent 4px);
+}
+
+.retro-photo {
+  filter: grayscale(1) contrast(1.05);
+}
+
+.memory-title {
+  color: #f3f2ee;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(1.75rem, 7vw, 2.75rem);
+  font-style: italic;
+  font-weight: 600;
+  letter-spacing: 0.015em;
+  line-height: 1.15;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+#home .memory-title {
+  max-width: 24rem;
+  color: #202020;
+}
+
+.memory-title span {
+  display: block;
+  font-family: "Alex Brush", cursive;
+  font-size: 1.35em;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.retro-single-photo {
+  padding: 0.75rem 0.75rem 2.5rem;
+  background: #f3f2ee;
+  border: 1px solid rgba(30, 30, 30, 0.65);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.24), 0 0 0 4px #f3f2ee, 0 0 0 5px rgba(30, 30, 30, 0.55);
+  transform: rotate(-2deg);
+}
+
+.retro-video {
+  display: block;
+  width: min(100%, 32rem);
+  height: auto;
+  border: 8px solid #f3f2ee;
+  outline: 1px solid rgba(30, 30, 30, 0.7);
+  background: #111;
+  object-fit: contain;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.28);
+}
+
+.memory-album-wrap {
+  display: flex;
+  width: min(100%, 32rem);
+  flex-direction: column;
+  align-items: center;
+}
+
+.memory-album {
+  width: 100%;
+  padding: 1.5rem 1.25rem 1.75rem;
+  border: 1px solid #888;
+  border-radius: 1.5rem;
+  background: linear-gradient(145deg, #393939, #181818);
+  color: #f3f2ee;
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.25);
+}
+
+.memory-photo-wrap {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  perspective: 900px;
+  border: 1px solid #111;
+  background: #101010;
+  box-shadow: 0 0 0 2px #101010, 0 0 0 3px #888;
+}
+
+.memory-photo-wrap::before,
+.memory-photo-wrap::after {
+  position: absolute;
+  z-index: 2;
+  right: 0.5rem;
+  left: 0.5rem;
+  height: 0.75rem;
+  background: repeating-linear-gradient(90deg, #f3f2ee 0 0.55rem, transparent 0.55rem 1.15rem);
+  content: "";
+}
+
+.memory-photo-wrap::before {
+  top: 0.35rem;
+}
+
+.memory-photo-wrap::after {
+  bottom: 0.35rem;
+}
+
+.memory-photo {
+  position: absolute;
+  inset: 1.5rem 0.6rem;
+  width: calc(100% - 1.2rem);
+  height: calc(100% - 3rem);
+  backface-visibility: hidden;
+  object-fit: contain;
+}
+
+.album-arrow {
+  display: grid;
+  width: 2.8rem;
+  height: 2.8rem;
+  place-items: center;
+  border: 1px solid #aaa;
+  border-radius: 9999px;
+  color: #f3f2ee;
+  font-size: 1.4rem;
+  transition: background-color 160ms ease, color 160ms ease;
+}
+
+.album-arrow:hover {
+  background: #f3f2ee;
+  color: #222;
+}
+
+.album-thumbnail {
+  flex: 0 0 auto;
+  width: 3.4rem;
+  height: 3.4rem;
+  overflow: hidden;
+  border: 2px solid #777;
+  border-radius: 0.5rem;
+  opacity: 0.62;
+  transition: opacity 160ms ease, border-color 160ms ease, transform 160ms ease;
+}
+
+.memory-thumbnails {
+  overflow-x: auto;
+  justify-content: flex-start;
+  padding: 0.25rem 0.15rem 0.5rem;
+  scrollbar-width: thin;
+}
+
+.memory-thumbnails::-webkit-scrollbar {
+  display: block;
+  height: 0.3rem;
+}
+
+.memory-thumbnails::-webkit-scrollbar-thumb {
+  border-radius: 9999px;
+  background: #888;
+}
+
+.album-thumbnail-active {
+  border-color: #f3f2ee;
+  opacity: 1;
+  transform: translateY(-2px);
+  box-shadow: 0 0 0 2px #888;
+}
+
+.emoji-bar {
+  position: fixed;
+  z-index: 40;
+  right: 50%;
+  bottom: max(1rem, env(safe-area-inset-bottom));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(0.75rem, 5vw, 1.5rem);
+  transform: translateX(50%);
+  border: 1px solid #777;
+  border-radius: 9999px;
+  background: rgba(30, 30, 30, 0.94);
+  padding: 0.7rem 1.25rem;
+  color: #f3f2ee;
+  font-size: clamp(1.2rem, 5vw, 1.5rem);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.emoji-bar a {
+  display: grid;
+  min-width: 2rem;
+  min-height: 2rem;
+  place-items: center;
+  border-radius: 9999px;
+  text-decoration: none;
+  transition: background-color 160ms ease, transform 160ms ease;
+}
+
+.emoji-bar a:hover,
+.emoji-bar a:focus-visible {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.music-retry {
+  position: fixed;
+  z-index: 40;
+  right: 50%;
+  bottom: calc(max(1rem, env(safe-area-inset-bottom)) + 4.5rem);
+  transform: translateX(50%);
+  border: 1px solid #777;
+  border-radius: 9999px;
+  background: #f3f2ee;
+  padding: 0.65rem 1rem;
+  color: #202020;
+  font-family: "Playfair Display", serif;
+  font-size: 0.8rem;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.message-button {
+  border: 1px solid #555;
+  border-radius: 9999px;
+  background: #292929;
+  padding: 0.9rem 2.25rem;
+  color: #f5f4f0;
+  font-family: "Playfair Display", serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 160ms ease, background-color 160ms ease;
+}
+
+.message-button:hover {
+  transform: translateY(-2px);
+  background: #111;
+}
+
+.newspaper {
+  border: 1px solid #777;
+  background: #f7f6f2;
+  padding: clamp(1.25rem, 5vw, 3rem);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22);
+  color: #171717;
+  font-family: "EB Garamond", Georgia, serif;
+}
+
+.newspaper-masthead {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  border-top: 1px solid #222;
+  border-bottom: 1px solid #222;
+  padding: 0.45rem 0;
+  font-family: Arial, sans-serif;
+  font-size: clamp(0.45rem, 1.5vw, 0.7rem);
+  letter-spacing: 0.04em;
+  text-align: center;
+}
+
+.newspaper-title {
+  margin: 0.4rem 0 0.25rem;
+  font-family: Georgia, serif;
+  font-size: clamp(2.2rem, 9vw, 5rem);
+  font-weight: 900;
+  letter-spacing: -0.07em;
+  line-height: 1;
+  text-align: center;
+}
+
+.newspaper-rule {
+  height: 5px;
+  border-top: 2px solid #111;
+  border-bottom: 1px solid #111;
+}
+
+.newspaper-headline {
+  margin: 1.25rem 0 0.25rem;
+  font-family: Georgia, serif;
+  font-size: clamp(1.45rem, 5vw, 2.6rem);
+  font-weight: 900;
+  line-height: 1.05;
+  text-align: center;
+}
+
+.newspaper-deck {
+  margin: 0 0 1.25rem;
+  font-family: "Alex Brush", cursive;
+  font-size: clamp(1.2rem, 4vw, 1.8rem);
+  text-align: center;
+}
+
+.newspaper-columns {
+  column-count: 2;
+  column-gap: 1.5rem;
+  column-rule: 1px solid #bbb;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  line-height: 1.55;
+}
+
+.newspaper-columns p {
+  margin: 0 0 1rem;
+  break-inside: avoid;
+}
+
+.newspaper-footer {
+  margin-top: 1rem;
+  border-top: 1px solid #222;
+  border-bottom: 1px solid #222;
+  padding: 0.55rem 0;
+  font-family: Arial, sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-align: center;
+}
+
+.retro-paper {
+  filter: grayscale(1) contrast(1.05);
+}
+
+.retro-frame {
+  border: 1px solid rgba(40, 40, 40, 0.65);
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.12), 0 0 0 3px #f3f2ee, 0 0 0 4px rgba(40, 40, 40, 0.55);
+}
+
+@media (max-width: 520px) {
+  .newspaper-columns {
+    column-count: 1;
+  }
+}
+
+/* =========================================
+   إخفاء السكرول بار تماماً من كل المتصفحات
+   عشان الورد يلزق في الشاشة للآخر
+========================================= */
+/* للكروم وسفاري */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* للفايرفوكس وإيدج */
+html, body, .overflow-y-auto {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
