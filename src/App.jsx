@@ -226,6 +226,25 @@ export default function App() {
               </div>
               <footer className="newspaper-footer">YOU WILL ALWAYS BE PART OF OUR STORY</footer>
             </article>
+            <footer className="site-credit" aria-label="TikTok: moment_makerr">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  fill="#25F4EE"
+                  d="M19.6 7.1a5.6 5.6 0 0 1-3.4-1.2v8.2a5.5 5.5 0 1 1-4.8-5.5v3.1a2.5 2.5 0 1 0 1.8 2.4V2.5h3a5.5 5.5 0 0 0 3.4 3.8v.8Z"
+                  transform="translate(-1 1)"
+                />
+                <path
+                  fill="#FE2C55"
+                  d="M19.6 7.1a5.6 5.6 0 0 1-3.4-1.2v8.2a5.5 5.5 0 1 1-4.8-5.5v3.1a2.5 2.5 0 1 0 1.8 2.4V2.5h3a5.5 5.5 0 0 0 3.4 3.8v.8Z"
+                  transform="translate(1 -0.5)"
+                />
+                <path
+                  fill="currentColor"
+                  d="M19.6 7.1a5.6 5.6 0 0 1-3.4-1.2v8.2a5.5 5.5 0 1 1-4.8-5.5v3.1a2.5 2.5 0 1 0 1.8 2.4V2.5h3a5.5 5.5 0 0 0 3.4 3.8v.8Z"
+                />
+              </svg>
+              <span>moment_makerr</span>
+            </footer>
           </motion.section>
         )}
       </AnimatePresence>
