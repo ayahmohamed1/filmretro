@@ -226,7 +226,13 @@ export default function App() {
               </div>
               <footer className="newspaper-footer">YOU WILL ALWAYS BE PART OF OUR STORY</footer>
             </article>
-            <footer className="site-credit" aria-label="TikTok: moment_makerr">
+            <a
+              className="site-credit"
+              href="https://www.tiktok.com/@moment_makerr?_r=1&_t=ZS-9B9vlByJgp8"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Visit moment_makerr on TikTok"
+            >
               <svg viewBox="0 0 24 24" aria-hidden="true">
                 <path
                   fill="#25F4EE"
@@ -244,7 +250,8 @@ export default function App() {
                 />
               </svg>
               <span>moment_makerr</span>
-            </footer>
+              <span className="site-credit-hint">Tap here to follow us on TikTok</span>
+            </a>
           </motion.section>
         )}
       </AnimatePresence>
