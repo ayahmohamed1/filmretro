@@ -132,7 +132,7 @@ export default function App() {
               These Memories <span>Make Me Smile</span>
             </h2>
             <p className="mt-2 text-xs uppercase tracking-[0.3em] text-white/80">
-              Photo {activePhoto + 2} of 39
+              Photo {activePhoto + 1} of 39
             </p>
 
             <div className="memory-photo-wrap mt-6">
