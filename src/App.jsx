@@ -90,7 +90,7 @@ export default function App() {
     />
     <main
       aria-hidden={!hasOpened}
-      className={`retro-site min-h-screen w-full text-[#202020] ${hasOpened ? '' : 'pointer-events-none'}`}
+      className={`retro-site min-h-screen w-full text-[#202020] ${hasOpened ? '' : 'hidden'}`}
     >
       <section
         id="home"
